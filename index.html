@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Flappy Chicken</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#70c5ce">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div id="ui-layer">
+            <div id="main-menu" class="screen">
+                <h1 class="title">FLAPPY<br>CHICKEN</h1>
+                <div class="score-board">
+                    <p>RÉCORD</p>
+                    <h2 id="menu-highscore">0</h2>
+                </div>
+                <button id="btn-play" class="btn-primary">▶ JUGAR</button>
+                <button id="btn-reset" class="btn-secondary">Borrar Récord</button>
+            </div>
+
+            <div id="hud" class="screen hidden">
+                <h1 id="current-score">0</h1>
+            </div>
+
+            <div id="game-over" class="screen hidden">
+                <h1 class="game-over-title">¡GAME OVER!</h1>
+                <div class="score-board">
+                    <p>PUNTUACIÓN</p>
+                    <h2 id="go-score">0</h2>
+                    <p>RÉCORD</p>
+                    <h2 id="go-highscore">0</h2>
+                </div>
+                <button id="btn-restart" class="btn-primary">↻ INTENTAR DE NUEVO</button>
+                <button id="btn-menu" class="btn-secondary">⌂ MENÚ</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('PWA lista para usar sin internet.'))
+                .catch(err => console.error('Error al registrar PWA', err));
+        });
+    }
+</script>
+</body>
+</html>

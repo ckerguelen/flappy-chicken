@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none; /* Evita seleccionar texto al tocar rápido */
+    -webkit-touch-callout: none;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #2c3e50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    touch-action: none; /* Crucial para evitar scroll al aletear en móviles */
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 500px; /* Ancho máximo para que se vea bien en PC también */
+    margin: 0 auto;
+    background-color: #70c5ce; /* Color del cielo por defecto */
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Deja pasar los toques al canvas cuando sea necesario */
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.title {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 3px 3px 0 #d35400, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.game-over-title {
+    font-size: 2.5rem;
+    color: #ff4757;
+    text-shadow: 2px 2px 0 #fff, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-bottom: 20px;
+}
+
+.score-board {
+    background: #fdf5e6;
+    border: 4px solid #8e44ad;
+    border-radius: 15px;
+    padding: 20px 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 0 #6c3483;
+}
+
+.score-board p {
+    color: #8e44ad;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.score-board h2 {
+    color: #d35400;
+    font-size: 2.5rem;
+}
+
+button {
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px 0;
+    transition: transform 0.1s;
+    width: 80%;
+    max-width: 300px;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background: linear-gradient(to bottom, #f1c40f, #f39c12);
+    color: white;
+    border: 3px solid #fff;
+    box-shadow: 0 6px 0 #d35400;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.btn-secondary {
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+    color: white;
+    border: 3px solid #fff;
+    box-shadow: 0 6px 0 #1f618d;
+}
+
+#hud {
+    justify-content: flex-start;
+    padding-top: 10%;
+    pointer-events: none;
+}
+
+#current-score {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 3px 3px 0 #000;
+}
